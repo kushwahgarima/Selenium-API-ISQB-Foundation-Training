@@ -1,5 +1,5 @@
 # Selenium-API-ISQB-Foundation-Training
-Selenium+API+ISQB Foundation Training
+
 package SeleniumBasics;
 
 import org.openqa.selenium.By;
