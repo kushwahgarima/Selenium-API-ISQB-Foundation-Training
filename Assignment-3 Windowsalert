@@ -1,0 +1,35 @@
+package SeleniumBasics;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WindowAlert {
+
+	public static void main(String[] args) throws InterruptedException {
+		//set system path for browser driver 
+		System.setProperty("webdriver.chrome.driver","c:\\SeleniumBrowserDrivers\\chromedriver.exe");
+		
+		// open browser
+		WebDriver driver = new ChromeDriver();
+		
+		//Open Url
+		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm");
+		String pHandle = driver.getWindowHandle(); 
+		System.out.println(pHandle);
+		driver.findElement(By.id("getwebsitebtn")).click();				
+		Thread.sleep(1000);
+		
+		
+		//to go to the parent window
+		driver.switchTo().window(pHandle);
+		
+		//Close browser
+        driver.close();
+		
+         
+        //kill/quit driver
+        driver.quit();
+	}
+
+}
