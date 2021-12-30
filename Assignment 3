@@ -1,0 +1,47 @@
+package SeleniumBasics;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AlertCllass {
+
+	public static void main(String[] args) {
+		//set system path for browser driver 
+				System.setProperty("webdriver.chrome.driver","c:\\SeleniumBrowserDrivers\\chromedriver.exe");
+				
+				// open browser
+				WebDriver driver = new ChromeDriver();
+				
+				//Open Url
+				driver.get("http://zero.webappsecurity.com/");
+				driver.findElement(By.id("signin_button")).click();
+				driver.findElement(By.name("user_login")).sendKeys("username");
+				 driver.findElement(By.cssSelector("[type='password']")).sendKeys("password");
+			 driver.findElement(By.xpath("//input[@name='submit']")).click();
+			   driver.findElement(By.id("details-button")).click(); 
+			driver.findElement(By.id("proceed-link")).click();
+			driver.findElement(By.linkText("Pay Bills")).click();
+				driver.findElement(By.linkText("Purchase Foreign Currency")).click();
+			driver.findElement(By.cssSelector("input#purchase_cash")).click();
+			Alert b = driver.switchTo().alert();
+			System.out.println(b.getText());
+			 b.accept();
+			
+			//##### Alerts ######
+				driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_confirm");
+			    driver.findElement(By.xpath("//button[contains(text(),'myFunction()']")).click();
+					Alert block = driver.switchTo().alert();
+					System.out.println(block.getText());
+					 block.dismiss();
+					 
+						//Close browser
+				        driver.close();
+				        
+				        //kill/quit driver
+				        driver.quit();
+
+	}
+
+}
